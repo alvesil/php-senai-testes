@@ -2,57 +2,102 @@
 <html lang="en">
 
 <head>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: radial-gradient(rgb(255, 255, 255), rgb(131, 131, 131));
-        }
-        
-        tr {
-            font-size: large;
-        }
-        
-        table {
-            background-color: white;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabelas</title>
+    <title>Cadastro de Fornecedores</title>
 </head>
 
 <body>
-    <table align="center" border="2px solid" cellspacing="3" cellpadding="40">
-        <tr align="center">
-            <th>Time</th>
-            <th>Campeonato</th>
-            <th>Escudo</th>
-            <th>Link</th>
-            <th>Hino</th>
-        </tr>
-        <tr>
-            <td>Flamengo</td>
-            <td align="center">1966</td>
-            <td><img src="media/flamengo.png" alt="Imagem não encontrada" width="50" height="50"></td>
-            <td><a href="https://www.flamengo.com.br" target="_blank">Visite o Site</a></td>
-            <td><audio controls src="media/audio/hino-flamengo.mp3"></audio></td>
-        </tr>
-        <tr>
-            <td>Fluminense</td>
-            <td align="center">1959</td>
-            <td><img src="media/fluminense.png" alt="Imagem não encontrada" width="50" height="50"></td>
-            <td><a href="https://www.fluminense.com.br" target="_blank">Visite o Site</a></td>
-            <td><audio controls src="media/audio/hino-fluminense-fc.mp3"></audio></td>
-        </tr>
-        <tr>
-            <td>Grêmio</td>
-            <td align="center">1987</td>
-            <td><img src="media/gremio.jpg" alt="Imagem não encontrada" width="50" height="50"></td>
-            <td><a href="https://gremio.net/" target="_blank">Visite o Site</a></td>
-            <td><audio controls src="media/audio/hino-gremio-rs.mp3"></audio></td>
-        </tr>
-    </table>
+    <h2>Cadastro de Fornecedores</h2>
+    <h3>Observação: Todos os campos com (*) são obrigatórios!</h3>
+    <form action="" method="POST">
+        <div>
+            <fieldset style="opacity: 0.8; background-image: url(/img/bgcadastro.png); background-repeat: no-repeat; background-position: right; background-size: 30%;">
+                <legend><strong>Dados do Fornecedor</strong></legend>
+                <fieldset>
+                    <legend>Identificação</legend>
+                    <table>
+                        <tr>
+                            <td>Código*</td>
+                            <td><input type=" number " name="codigofornecedor " min="0 " max="999 " maxlength="3 " id=" " required></td>
+                            <td>Nome*</td>
+                            <td><input type="text " name="nomefornecededor " size="50 " maxlength="50 " id=" " required></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Contato</legend>
+                    <table>
+                        <tr>
+                            <td>Telefone 1*</td>
+                            <td><input type="text " name="telefonefornecedor1 " size=15 maxlength="15 " id=" " required></td>
+                            <td>Telefone 2</td>
+                            <td><input type="text " name="telefonefornecedor2 " size=15 maxlength="15 " id=" "></td>
+                        </tr>
+                        <tr>
+                            <td>Celular*</td>
+                            <td><input type="text " name="celularfornecedor " size=15 maxlength="15 " id=" " required></td>
+                            <td>Whatsapp</td>
+                            <td><input type="text " name="whatsappfornecedor " size=15 maxlength="15 " id=" "></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Informações Adicionais</legend>
+                    <table>
+                        <tr>
+                            <td>e-mail*</td>
+                            <td><input type="email " name="emailfornecedor " size="100 " maxlength="50 " id=" " required></td>
+                        </tr>
+                        <tr>
+                            <td>Data de Cadastro*</td>
+                            <td><input type="date " name="datacadastrofornecedor " id=" " required></td>
+                        </tr>
+                        <tr>
+                            <td>Data da Última Compra</td>
+                            <td><input type="date " name="dataultcompfornecedor " id=" "></td>
+                        </tr>
+                        <tr>
+                            <td>Saldo Comprado*</td>
+                            <td><input type="number " name="saldocompradofornecedor " min="0 " max="100000 " maxlength="12 " id=" " required></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td><input type="text " name="statusfornecedor " size="1 " maxlength="1 " id=" "></td>
+                        </tr>
+                        <tr>
+                            <td>Data da Última Compra</td>
+                            <td><input type="date " name="dataultcompfornecedor " id=" "></td>
+                        </tr>
+                        <tr>
+                            <td>Observação</td>
+                            <td><textarea rows="5 " cols="50 " maxlength="500 " name="observacaofornecedor " id=" "></textarea></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Dados Bancários</legend>
+                    <table>
+                        <tr>
+                            <td>Banco*</td>
+                            <td><input type="number " name="bancofornecedor " min="000 " max="999 " id=" " required></td>
+                        </tr>
+                        <tr>
+                            <td>Agência*</td>
+                            <td><input type="text " name="agenciafornecedor " size="5 " maxlength="5 " id=" " required></td>
+                        </tr>
+                        <tr>
+                            <td>Conta*</td>
+                            <td><input type="text " name="contafornecedor " id=" " required></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+            </fieldset>
+            <input type="submit " name="botaoenviar ">
+        </div>
+    </form>
 </body>
 
 </html>
