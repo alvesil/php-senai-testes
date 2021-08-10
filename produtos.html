@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        #fs1 {
+            background-image: url(./img/bgcadastroproduto.png);
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: right;
+        }
+    </style>
+    <title>Cadastro de Clientes</title>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Controle de Cadastros</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white bg-primary" aria-current="page" href="./index.html">Cadastrar Novo Fornecedor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark bg-warning" href="#">Cadastrar Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled text-dark bg-secondary" href="#">Cadastrar Funcionários(Em construção)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h2>Cadastro de Clientes</h2>
+    <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+    <form action="">
+        <div>
+            <fieldset id="fs1">
+                <legend><strong>Dados do Produto</strong></legend>
+                <fieldset style="border:ridge; border-radius:10pt;">
+                    <legend>Identificação</legend>
+                    <table>
+                        <tr>
+                            <td>Código*</td>
+                            <td><input type="number" name="codigofornecedor" min="0" max="999 " maxlength="13" id="" required></td>
+                            <td>Descrição</td>
+                            <td><input type="text" name="nomefornecededor" size="25" maxlength="50" id=""></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset style="border:ridge; border-radius:10pt;">
+                    <legend>Contato</legend>
+                    <table>
+                        <tr>
+                            <td>Unidade*</td>
+                            <td><input type="text" name="telefonefornecedor1" size=10 maxlength="10" id="" required></td>
+                            <td>Peso*</td>
+                            <td><input type="number" name="telefonefornecedor2" size=5 maxlength="5" id="" required>(kg)</td>
+                        </tr>
+                        <tr>
+                            <td>Custo*</td>
+                            <td><input style="text-align: right;" type="number" name="celularfornecedor" size="10" maxlength="10" id="" required>R$</td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset style="border:ridge; border-radius:10pt;">
+                    <legend>Informações Adicionais</legend>
+                    <table>
+                        <tr>
+                            <td>Venda*</td>
+                            <td><input type="number" name="emailfornecedor" step="0.00" size="10" maxlength="10" id="" required>R$</td>
+                        </tr>
+                        <tr>
+                            <td>Ultima Compra*</td>
+                            <td><input type="date" name="datacadastrofornecedor" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>Fornecedor</td>
+                            <td><input type="number" size="5" maxlength="5" name="dataultcompfornecedor" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Quantidade*</td>
+                            <td><input type="number" name="saldocompradofornecedor" min="0" max="10000" maxlength="5" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>Mínimo</td>
+                            <td><input type="number" name="statusfornecedor" size="5" maxlength="5" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Imagem</td>
+                            <td><input type="file" name="dataultcompfornecedor" id=""></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Gravar" onclick="cadastrado()">
+                <input class="btn btn-secondary" type="button" value="Cancelar">
+            </fieldset>
+        </div>
+    </form>
+</body>
+
+</html>

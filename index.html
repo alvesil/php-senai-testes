@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        #fs1 {
+            background-image: url(./img/bgcadastro.png);
+            background-repeat: no-repeat;
+            background-size: 25%;
+            background-position: right;
+        }
+    </style>
     <title>Cadastro de Fornecedores</title>
 </head>
 
@@ -24,7 +32,10 @@
                             <a class="nav-link text-white bg-primary" aria-current="page" href="#">Cadastrar Novo Fornecedor</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark bg-warning" href="#">Alterar Dados de Fornecedores Cadastrados</a>
+                            <a class="nav-link text-dark bg-warning" href="./produtos.html">Cadastrar Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled text-dark bg-success" href="#">Cadastrar Funcionários(Em construção)</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +46,7 @@
     <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
     <form action="" method="POST">
         <div>
-            <fieldset style="background-image: url(/img/bgcadastro.png); background-repeat: no-repeat; background-position: right; background-size: 30%;">
+            <fieldset id="fs1">
                 <legend><strong>Dados do Fornecedor</strong></legend>
                 <fieldset style="border:ridge; border-radius:10pt;">
                     <legend>Identificação</legend>
