@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        #fs1 {
+            background-image: url(./img/cliente.png);
+            background-repeat: no-repeat;
+            background-size: 25%;
+            background-position: right;
+        }
+    </style>
+    <title>Cadastro de Clientes</title>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand disabled" href="#">Controle de Cadastros</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="./index.html">Cadastrar Novo Fornecedor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./produtos.html">Cadastrar Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled text-light" href="#">Cadastrar Clientes</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h2>Cadastro de Clientes</h2>
+    <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+    <form action="">
+        <div>
+            <fieldset id="fs1">
+                <legend><strong>Dados do Produto</strong></legend>
+                <fieldset style="border:ridge; border-radius:10pt;">
+                    <legend>Identificação</legend>
+                    <table>
+                        <tr>
+                            <td>Código do Cliente*</td>
+                            <td><input type="number" name="codigofornecedor" size="5" maxlength="5" id="" required></td>
+                            <td class="btn btn-primary">Consultar</td>
+                        </tr>
+                        <tr>
+                            <td>Nome completo</td>
+                            <td><input type="text" name="nomefornecededor" size="50" maxlength="50" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Endereço</td>
+                            <td><input type="text" name="nomefornecededor" size="50" maxlength="50" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Nº do Endereço</td>
+                            <td><input type="text" name="nomefornecededor" size="10" maxlength="10" id=""></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset style="border:ridge; border-radius:10pt;">
+                    <legend>Endereço</legend>
+                    <table>
+                        <tr>
+                            <td>Bairro*</td>
+                            <td><input type="text" name="telefonefornecedor1" size=10 maxlength="10" id="" required></td>
+                            <td style="text-align: right;">Cidade*</td>
+                            <td><input type="number" name="telefonefornecedor2" size=5 maxlength="5" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>UF*</td>
+                            <td>
+                                <input size="2" list="browsers" />
+                                <datalist id="browsers">
+                                    <option value="AC">
+                                    <option value="AL">
+                                    <option value="AM">
+                                    <option value="AP">
+                                    <option value="BA">
+                                    <option value="CE">
+                                    <option value="DF">
+                                    <option value="ES">
+                                    <option value="GO">
+                                    <option value="MA">
+                                    <option value="PA">
+                                    <option value="PB">
+                                    <option value="PE">
+                                    <option value="PR">
+                                    <option value="RJ">
+                                    <option value="RN">
+                                    <option value="RS">
+                                    <option value="RR">
+                                    <option value="RO">
+                                    <option value="SC">
+                                    <option value="SP">
+                                </datalist>
+
+                            </td>
+                            <td style="text-align: right;">CEP*</td>
+                            <td><input style="text-align: right;" type="text" name="celularfornecedor" size="10" maxlength="10" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>CPF*</td>
+                            <td><input style="text-align: right;" type="number" name="celularfornecedor" size="8" maxlength="8" id="" required></td>
+                            <td>Data de Nascimento*</td>
+                            <td><input type="date" name="celularfornecedor" size="10" maxlength="10" id="" required></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset style="border:ridge; border-radius:10pt;">
+                    <legend>Informações Adicionais</legend>
+                    <table>
+                        <tr>
+                            <td>Sexo*</td>
+                            <td><input type="radio" name="emailfornecedor" id="" required>Masculino
+                                <input type="radio" name="emailfornecedor" id="" required>Feminino
+                                <input type="radio" name="emailfornecedor" id="" required>Não declarado</td>
+                        </tr>
+                        <tr>
+                            <td>Telefone Celular*</td>
+                            <td><input type="date" name="datacadastrofornecedor" id="" required></td>
+                            <td>email</td>
+                            <td><input type="number" size="5" maxlength="5" name="dataultcompfornecedor" id=""></td>
+                        </tr>
+                        <tr>
+
+                            <td>Salário Pretendido</td>
+                            <td><input type="number" name="saldocompradofornecedor" min="0" max="10000" maxlength="5" id=""></td>
+                            <td>Cor</td>
+                            <td><input type="color" name="statusfornecedor" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Cursos que fez</td>
+                            <td><textarea name="dataultcompfornecedor" rows="5" cols="50" maxlength="500" id=""></textarea></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Gravar">
+                <input class="btn btn-secondary" type="button" value="Cancelar">
+            </fieldset>
+        </div>
+    </form>
+</body>
+
+</html>
