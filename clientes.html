@@ -8,27 +8,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <style>
-        #fs1 {
-            background-image: url(./img/cliente.png);
-            background-repeat: no-repeat;
-            background-size: 25%;
-            background-position: right;
-        }
-        
         #nav1:hover {
-            background-color: #0d6efd;
+            background-color: #2B7C85;
         }
         
         #nav2:hover {
-            background-color: #0d6efd;
+            background-color: #2B7C85;
         }
         
         #nav3 {
-            background-color: #dc3545;
+            background-color: #175873;
         }
         
         input {
             border-radius: 10px;
+        }
+        
+        .btn {
+            background-color: #175873;
+            color: white;
+        }
+        
+        .btn:hover {
+            background-color: #2B7C85;
+            color: white;
+        }
+        
+        #btncancel {
+            background-color: #ff2511da;
+        }
+        
+        #btncancel:hover {
+            background-color: #ff1500;
+            color: white;
         }
     </style>
     <title>Cadastro de Clientes</title>
@@ -36,7 +48,7 @@
 
 <body>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0C1446;">
             <div class="container-fluid">
                 <a class="navbar-brand disabled" href="#">Controle de Cadastros</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,13 +76,13 @@
         <div>
             <fieldset id="fs1">
                 <legend><strong>Dados do Produto</strong></legend>
-                <fieldset style="border:ridge; border-radius:10pt;">
+                <fieldset class="fsclass" style="border:ridge; border-radius:10pt;">
                     <legend>Identificação</legend>
                     <table>
                         <tr>
                             <td>Código do Cliente*</td>
-                            <td><input type="number" name="codigofornecedor" size="5" maxlength="5" id="" required></td>
-                            <td class="btn btn-primary">Consultar</td>
+                            <td><input type="number" name="codigofornecedor" size="5" maxlength="5" id="" required>
+                                <button class="btn">Consultar</button>
                         </tr>
                         <tr>
                             <td>Nome completo</td>
@@ -165,7 +177,7 @@
                 </fieldset>
                 <br>
                 <input class="btn btn-primary" type="submit" value="Gravar">
-                <input class="btn btn-secondary" type="button" value="Cancelar">
+                <button class="btn" id="btncancel">Cancelar</button>
             </fieldset>
         </div>
     </form>
