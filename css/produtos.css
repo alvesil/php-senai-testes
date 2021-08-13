@@ -1,3 +1,8 @@
+* {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 fieldset {
     display: inline-block;
     border: ridge 2pt;
