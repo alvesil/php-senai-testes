@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <style>
         #nav1 {
@@ -71,8 +72,10 @@
             </div>
         </nav>
     </div>
-    <h2>Cadastro de Fornecedores</h2>
-    <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+    <fieldset>
+        <h2>Cadastro de Fornecedores <i class="fa fa-truck"></i></h2>
+        <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+    </fieldset>
     <form action="" method="POST">
         <div>
             <fieldset id="fs1">
@@ -98,12 +101,16 @@
                         <tr>
                             <td>Telefone 1*</td>
                             <td><input type="text" name="telefonefornecedor1" size=15 maxlength="15" id="" required></td>
+                        </tr>
+                        <tr>
                             <td>Telefone 2</td>
                             <td><input type="text" name="telefonefornecedor2" size=15 maxlength="15" id=""></td>
                         </tr>
                         <tr>
                             <td>Celular*</td>
                             <td><input type="text" name="celularfornecedor" size=15 maxlength="15" id="" required></td>
+                        </tr>
+                        <tr>
                             <td>Whatsapp</td>
                             <td><input type="text" name="whatsappfornecedor" size=15 maxlength="15" id=""></td>
                         </tr>
@@ -114,7 +121,7 @@
                     <table>
                         <tr>
                             <td>E-mail*</td>
-                            <td><input type="email" name="emailfornecedor" size="50" maxlength="50" id="" required></td>
+                            <td><input type="email" name="emailfornecedor" size="30" maxlength="50" id="" required></td>
                         </tr>
                         <tr>
                             <td>Data de Cadastro*</td>
@@ -138,7 +145,7 @@
                         </tr>
                         <tr>
                             <td>Observação</td>
-                            <td><textarea rows="5" cols="50" maxlength="500" name="observacaofornecedor" id=""></textarea></td>
+                            <td><textarea rows="5" cols="30" maxlength="500" name="observacaofornecedor" id=""></textarea></td>
                         </tr>
                     </table>
                 </fieldset>
@@ -155,7 +162,7 @@
                         </tr>
                         <tr>
                             <td>Conta*</td>
-                            <td><input type="text" name="contafornecedor" id="" size="15" maxlength="15" style="text-align: right;" required></td>
+                            <td><input type="text" name="contafornecedor" id="" size="10" maxlength="10" style="text-align: right;" required></td>
                         </tr>
                     </table>
                 </fieldset>

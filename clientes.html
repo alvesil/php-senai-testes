@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <style>
         #nav1:hover {
@@ -70,8 +71,10 @@
             </div>
         </nav>
     </div>
-    <h2>Cadastro de Clientes</h2>
-    <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+    <fieldset>
+        <h2>Cadastro de Clientes <i class="fa fa-user"></i></h2>
+        <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+    </fieldset>
     <form action="">
         <div>
             <fieldset id="fs1">
@@ -81,20 +84,28 @@
                     <table>
                         <tr>
                             <td>Código do Cliente*</td>
-                            <td><input type="number" name="codigofornecedor" size="5" maxlength="5" id="" required>
+                            <td><input type="number" name="codigofornecedor" min="0" max="99999" id="" required>
                                 <button class="btn">Consultar</button>
                         </tr>
                         <tr>
                             <td>Nome completo</td>
-                            <td><input type="text" name="nomefornecededor" size="50" maxlength="50" id=""></td>
+                            <td><input type="text" name="nomefornecededor" size="30" maxlength="50" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>CPF*</td>
+                            <td><input style="text-align: right;" type="number" name="celularfornecedor" min="0" max="99999999999" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>Data de Nascimento*</td>
+                            <td><input type="date" name="celularfornecedor" size="10" maxlength="10" id="" required></td>
                         </tr>
                         <tr>
                             <td>Endereço</td>
-                            <td><input type="text" name="nomefornecededor" size="50" maxlength="50" id=""></td>
+                            <td><input type="text" name="nomefornecededor" size="30" maxlength="50" id=""></td>
                         </tr>
                         <tr>
                             <td>Nº do Endereço</td>
-                            <td><input type="text" name="nomefornecededor" size="10" maxlength="10" id=""></td>
+                            <td><input type="text" name="nomefornecededor" size="3" maxlength="5" id=""></td>
                         </tr>
                     </table>
                 </fieldset>
@@ -103,9 +114,16 @@
                     <table>
                         <tr>
                             <td>Bairro*</td>
-                            <td><input type="text" name="telefonefornecedor1" size=10 maxlength="10" id="" required></td>
+                            <td><input type="text" name="telefonefornecedor1" size="30" maxlength="30" id="" required></td>
+
+                        </tr>
+                        <tr>
                             <td style="text-align: right;">Cidade*</td>
-                            <td><input type="number" name="telefonefornecedor2" size=5 maxlength="5" id="" required></td>
+                            <td><input type="text" name="telefonefornecedor2" size="30" maxlength="30" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>CEP*</td>
+                            <td><input style="text-align: right;" type="text" name="celularfornecedor" size="30" maxlength="30" id="" required></td>
                         </tr>
                         <tr>
                             <td>UF*</td>
@@ -134,16 +152,7 @@
                                     <option value="SC">
                                     <option value="SP">
                                 </datalist>
-
                             </td>
-                            <td style="text-align: right;">CEP*</td>
-                            <td><input style="text-align: right;" type="text" name="celularfornecedor" size="10" maxlength="10" id="" required></td>
-                        </tr>
-                        <tr>
-                            <td>CPF*</td>
-                            <td><input style="text-align: right;" type="number" name="celularfornecedor" size="8" maxlength="8" id="" required></td>
-                            <td>Data de Nascimento*</td>
-                            <td><input type="date" name="celularfornecedor" size="10" maxlength="10" id="" required></td>
                         </tr>
                     </table>
                 </fieldset>
@@ -158,20 +167,24 @@
                         </tr>
                         <tr>
                             <td>Telefone Celular*</td>
-                            <td><input type="date" name="datacadastrofornecedor" id="" required></td>
-                            <td>email</td>
-                            <td><input type="number" size="5" maxlength="5" name="dataultcompfornecedor" id=""></td>
+                            <td><input type="number" name="datacadastrofornecedor" min="0" max="99999999999999" maxlength="14" id="" required></td>
+                        </tr>
+                        <tr>
+                            <td>E-mail</td>
+                            <td><input type="email" size="30" maxlength="30" name="dataultcompfornecedor" id=""></td>
                         </tr>
                         <tr>
 
                             <td>Salário Pretendido</td>
-                            <td><input type="number" name="saldocompradofornecedor" min="0" max="10000" maxlength="5" id=""></td>
+                            <td><input style="text-align: right;" type="number" name="saldocompradofornecedor" min="0" max="99999" maxlength="5" id="">R$</td>
+                        </tr>
+                        <tr>
                             <td>Cor</td>
                             <td><input type="color" name="statusfornecedor" id=""></td>
                         </tr>
                         <tr>
                             <td>Cursos que fez</td>
-                            <td><textarea name="dataultcompfornecedor" rows="5" cols="50" maxlength="500" id=""></textarea></td>
+                            <td><textarea name="cursosquefezr" rows="5" cols="30" maxlength="500" id=""></textarea></td>
                         </tr>
                     </table>
                 </fieldset>
