@@ -5,8 +5,9 @@
 
 .fsborder,
 #fs1 {
+    padding: 10pt;
     border: ridge 2pt;
-    border-radius: 10pt;
+    border-radius: 0 0 0 10pt;
 }
 
 fieldset {
@@ -26,17 +27,20 @@ fieldset {
 }
 
 input {
+    border: ridge;
     border-radius: 10px;
 }
 
 .btn,
-#btnconsultarcnpj {
+#btnconsultarcnpj,
+#btnsub {
     background-color: #175873;
     color: white;
 }
 
 .btn:hover,
-#btnconsultarcnpj:hover {
+#btnconsultarcnpj:hover,
+#btnsub:hover {
     background-color: #2B7C85;
     color: white;
 }

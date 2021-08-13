@@ -3,9 +3,16 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#btngrvecancl,
+#clrbrdr {
+    border-radius: 0;
+    border: 0;
+}
+
 .fsborder {
     border: ridge 2pt;
-    border-radius: 10pt;
+    border-radius: 0 0 0 10pt;
+    padding: 10pt;
 }
 
 #fscadastrocliente {
@@ -31,6 +38,7 @@ fieldset {
 }
 
 input {
+    border: ridge;
     border-radius: 10px;
 }
 
