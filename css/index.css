@@ -1,0 +1,44 @@
+.fsborder {
+    border: ridge 2pt;
+    border-radius: 10pt;
+}
+
+fieldset {
+    display: inline-block;
+}
+
+#nav1 {
+    background-color: #175873;
+}
+
+#nav2:hover {
+    background-color: #2B7C85;
+}
+
+#nav3:hover {
+    background-color: #2B7C85;
+}
+
+input {
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: #175873;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #2B7C85;
+    color: white;
+}
+
+#btncancel {
+    background-color: #ff2511da;
+    color: white;
+}
+
+#btncancel:hover {
+    background-color: #ff1500;
+    color: white;
+}

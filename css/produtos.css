@@ -1,0 +1,43 @@
+fieldset {
+    display: inline-block;
+}
+
+.fsclass {
+    background-color: white;
+}
+
+#nav1:hover {
+    background-color: #2B7C85;
+}
+
+#nav2 {
+    background-color: #175873;
+}
+
+#nav3:hover {
+    background-color: #2B7C85;
+}
+
+input {
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: #175873;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #2B7C85;
+    color: white;
+}
+
+#btncancel {
+    background-color: #ff2511da;
+    color: white;
+}
+
+#btncancel:hover {
+    background-color: #ff1500;
+    color: white;
+}
