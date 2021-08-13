@@ -1,4 +1,5 @@
-.fsborder {
+.fsborder,
+#fs1 {
     border: ridge 2pt;
     border-radius: 10pt;
 }
@@ -23,12 +24,14 @@ input {
     border-radius: 10px;
 }
 
-.btn {
+.btn,
+#btnconsultarcnpj {
     background-color: #175873;
     color: white;
 }
 
-.btn:hover {
+.btn:hover,
+#btnconsultarcnpj:hover {
     background-color: #2B7C85;
     color: white;
 }

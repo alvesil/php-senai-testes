@@ -1,5 +1,11 @@
 fieldset {
     display: inline-block;
+    border: ridge 2pt;
+    border-radius: 10pt;
+}
+
+#fscadastro {
+    border: 0;
 }
 
 .fsclass {
@@ -22,6 +28,7 @@ input {
     border-radius: 10px;
 }
 
+.btn,
 .btn {
     background-color: #175873;
     color: white;

@@ -3,8 +3,14 @@
     border-radius: 10pt;
 }
 
+#fscadastrocliente {
+    border: 0;
+}
+
 fieldset {
     display: inline-block;
+    border: ridge 2pt;
+    border-radius: 10pt;
 }
 
 #nav1:hover {
