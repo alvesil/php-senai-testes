@@ -76,17 +76,17 @@
             </div>
         </nav>
     </div>
-    <fieldset>
+    <fieldset align="center">
         <h2>Cadastro de Produtos <i class="fa fa-barcode"></i></h2>
         <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
     </fieldset>
     <form action="">
         <div>
             <fieldset id="fsdadosprod">
-                <legend><strong>Dados do Produto</strong></legend>
+                <legend align="center"><strong>Dados do Produto</strong></legend>
                 <fieldset class="fsclass" style="border:ridge; border-radius:10pt;">
-                    <legend>Identificação</legend>
-                    <table>
+                    <legend align="center">Identificação</legend>
+                    <table align="center">
                         <tr>
                             <td>CNPJ*</td>
                             <td><input type="number" name="codigo" size="30" maxlength="30" id="" required></td>
@@ -99,8 +99,8 @@
                     </table>
                 </fieldset>
                 <fieldset class="fsclass" style="border:ridge; border-radius:10pt;">
-                    <legend>Dimensões e Pesagem</legend>
-                    <table>
+                    <legend align="center">Dimensões e Pesagem</legend>
+                    <table align="center">
                         <tr>
                             <td>Unidade*</td>
                             <td><input type="text" name="telefonefornecedor1" size="2" maxlength="3" id="" required></td>
@@ -116,8 +116,8 @@
                     </table>
                 </fieldset>
                 <fieldset class="fsclass" style="border:ridge; border-radius:10pt;">
-                    <legend>Informações de Fornecedor/Vendas</legend>
-                    <table>
+                    <legend align="center">Informações de Fornecedor/Vendas</legend>
+                    <table align="center">
                         <tr>
                             <td>Venda*</td>
                             <td><input type="number" name="emailfornecedor" step="0.00" size="10" maxlength="10" id="" required>R$</td>
@@ -145,8 +145,10 @@
                     </table>
                 </fieldset>
                 <br>
-                <input class="btn" type="submit" value="Gravar">
-                <button id="btncancel" class="btn">Cancelar</button>
+                <fieldset align="center">
+                    <input class="btn" type="submit" value="Gravar">
+                    <button id="btncancel" class="btn">Cancelar</button>
+                </fieldset>
             </fieldset>
         </div>
     </form>

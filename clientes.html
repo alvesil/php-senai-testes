@@ -71,17 +71,17 @@
             </div>
         </nav>
     </div>
-    <fieldset>
+    <fieldset align="center">
         <h2>Cadastro de Clientes <i class="fa fa-user"></i></h2>
         <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
     </fieldset>
     <form action="">
         <div>
             <fieldset id="fs1">
-                <legend><strong>Dados do Produto</strong></legend>
+                <legend align="center"><strong>Dados do Produto</strong></legend>
                 <fieldset class="fsclass" style="border:ridge; border-radius:10pt;">
-                    <legend>Identificação</legend>
-                    <table>
+                    <legend align="center">Identificação</legend>
+                    <table align="center">
                         <tr>
                             <td>Código do Cliente*</td>
                             <td><input type="number" name="codigofornecedor" min="0" max="99999" id="" required>
@@ -110,8 +110,8 @@
                     </table>
                 </fieldset>
                 <fieldset style="border:ridge; border-radius:10pt;">
-                    <legend>Endereço</legend>
-                    <table>
+                    <legend align="center">Endereço</legend>
+                    <table align="center">
                         <tr>
                             <td>Bairro*</td>
                             <td><input type="text" name="telefonefornecedor1" size="30" maxlength="30" id="" required></td>
@@ -157,8 +157,8 @@
                     </table>
                 </fieldset>
                 <fieldset style="border:ridge; border-radius:10pt;">
-                    <legend>Informações Adicionais</legend>
-                    <table>
+                    <legend align="center">Informações Adicionais</legend>
+                    <table align="center">
                         <tr>
                             <td>Sexo*</td>
                             <td><input type="radio" name="emailfornecedor" id="" required>Masculino
@@ -189,8 +189,10 @@
                     </table>
                 </fieldset>
                 <br>
-                <input class="btn btn-primary" type="submit" value="Gravar">
-                <button class="btn" id="btncancel">Cancelar</button>
+                <fieldset align="center">
+                    <input class="btn btn-primary" type="submit" value="Gravar">
+                    <button class="btn" id="btncancel">Cancelar</button>
+                </fieldset>
             </fieldset>
         </div>
     </form>

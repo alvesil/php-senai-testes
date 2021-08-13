@@ -72,17 +72,17 @@
             </div>
         </nav>
     </div>
-    <fieldset>
+    <fieldset align="center">
         <h2>Cadastro de Fornecedores <i class="fa fa-truck"></i></h2>
         <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
     </fieldset>
     <form action="" method="POST">
         <div>
             <fieldset id="fs1">
-                <legend><strong>Dados do Fornecedor</strong></legend>
+                <legend align="center"><strong>Dados do Fornecedor</strong></legend>
                 <fieldset style="border:ridge; border-radius:10pt;">
-                    <legend>Identificação</legend>
-                    <table>
+                    <legend align="center">Identificação</legend>
+                    <table align="center">
                         <tr>
                             <td>CNPJ*</td>
                             <td><input type="number" name="codigo" size="30" maxlength="50" id="" required>
@@ -96,8 +96,8 @@
                     </table>
                 </fieldset>
                 <fieldset style="border:ridge; border-radius:10pt;">
-                    <legend>Contato</legend>
-                    <table>
+                    <legend align="center">Contato</legend>
+                    <table align="center">
                         <tr>
                             <td>Telefone 1*</td>
                             <td><input type="text" name="telefonefornecedor1" size=15 maxlength="15" id="" required></td>
@@ -117,8 +117,8 @@
                     </table>
                 </fieldset>
                 <fieldset style="border:ridge; border-radius:10pt;">
-                    <legend>Informações Adicionais</legend>
-                    <table>
+                    <legend align="center">Informações Adicionais</legend>
+                    <table align="center">
                         <tr>
                             <td>E-mail*</td>
                             <td><input type="email" name="emailfornecedor" size="30" maxlength="50" id="" required></td>
@@ -150,8 +150,8 @@
                     </table>
                 </fieldset>
                 <fieldset style="border:ridge; border-radius: 10pt;">
-                    <legend>Dados Bancários</legend>
-                    <table>
+                    <legend align="center">Dados Bancários</legend>
+                    <table align="center">
                         <tr>
                             <td>Banco*</td>
                             <td><input type="text" name="bancofornecedor" id="" size="3" maxlength="3" style="text-align: right;" required></td>
@@ -167,8 +167,10 @@
                     </table>
                 </fieldset>
                 <br>
-                <input class="btn btn-primary" type="submit" value="Gravar">
-                <button class="btn" id="btncancel">Cancelar</button>
+                <fieldset align="center">
+                    <input class="btn btn-primary" type="submit" value="Gravar">
+                    <button class="btn" id="btncancel">Cancelar</button>
+                </fieldset>
             </fieldset>
         </div>
     </form>
