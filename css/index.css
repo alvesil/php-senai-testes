@@ -14,15 +14,11 @@ fieldset {
     display: inline-block;
 }
 
-#nav1 {
+#nav1, #nav2, #nav3, #nav4, #nav5 {
     background-color: #175873;
 }
 
-#nav2:hover {
-    background-color: #2B7C85;
-}
-
-#nav3:hover {
+#nav2:hover, #nav3:hover, #nav4:hover, #nav5:hover {
     background-color: #2B7C85;
 }
 

@@ -25,16 +25,12 @@ fieldset {
     border-radius: 10pt;
 }
 
-#nav1:hover {
-    background-color: #2B7C85;
-}
-
-#nav2:hover {
-    background-color: #2B7C85;
-}
-
-#nav3 {
+#nav1, #nav2, #nav3, #nav4, #nav5 {
     background-color: #175873;
+}
+
+#nav1:hover, #nav2:hover, #nav3:hover, #nav5:hover {
+    background-color: #2B7C85;
 }
 
 input {
