@@ -28,13 +28,13 @@
                             <a class="nav-link disabled text-white" aria-current="page" href="#">Principal</a>
                         </li>
                         <li class="nav-item" id="nav2">
-                            <a class="nav-link text-white" href="./fornecedor.html">Fornecedor</a>
+                            <a class="nav-link text-white" href="./fornecedor.php">Fornecedor</a>
                         </li>
                         <li class="nav-item" id="nav3">
-                            <a class="nav-link text-light" href="./produtos.html">Produtos</a>
+                            <a class="nav-link text-light" href="./produtos.php">Produtos</a>
                         </li>
                         <li class="nav-item" id="nav4">
-                            <a class="nav-link text-light" href="./clientes.html">Clientes</a>
+                            <a class="nav-link text-light" href="./clientes.php">Clientes</a>
                         </li>
                         <li class="nav-item dropdown" id="nav5">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

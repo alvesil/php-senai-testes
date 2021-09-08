@@ -25,16 +25,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item" id="nav1">
-                            <a class="nav-link text-white" href="./index.html">Principal</a>
+                            <a class="nav-link text-white" href="./index.php">Principal</a>
                         </li>
                         <li class="nav-item" id="nav2">
                             <a class="nav-link disabled text-white" aria-current="page" href="#">Fornecedor</a>
                         </li>
                         <li class="nav-item" id="nav3">
-                            <a class="nav-link text-light" href="./produtos.html">Produtos</a>
+                            <a class="nav-link text-light" href="./produtos.php">Produtos</a>
                         </li>
                         <li class="nav-item" id="nav4">
-                            <a class="nav-link text-light" href="./clientes.html">Clientes</a>
+                            <a class="nav-link text-light" href="./clientes.php">Clientes</a>
                         </li>
                         <li class="nav-item dropdown" id="nav5">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
