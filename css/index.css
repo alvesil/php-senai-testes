@@ -4,6 +4,7 @@
 }
 
 .fsborder,
+#fsdadosprod,
 #fs1 {
     padding: 10pt;
     border: ridge 2pt;
@@ -24,7 +25,7 @@ fieldset {
 
 input {
     border: ridge;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .btn,

@@ -1,153 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/edge/stylesheets/locastyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/produtos.css">
+    <?php include 'links.php' ?>
     <link rel="icon" href="./images/logo.ico"sizes="16x16" type="image/png">
     <title>OutletNet (Produtos)</title>
 </head>
 
 <body>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0C1446;">
-            <div class="container-fluid">
-                <img width="40px" src="./images/logo.png" alt="Imagem não encontrada...">
-                <a class="navbar-brand disabled" href="#">OutletNet</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item" id="nav1">
-                            <a class="nav-link text-white" href="./index.php">Principal</a>
-                        </li>
-                        <li class="nav-item" id="nav2">
-                            <a class="nav-link text-white" href="./fornecedor.php">Fornecedor</a>
-                        </li>
-                        <li class="nav-item" id="nav3">
-                            <a class="nav-link disabled text-light" aria-current="page" href="#">Produtos</a>
-                        </li>
-                        <li class="nav-item" id="nav4">
-                            <a class="nav-link text-light" href="./clientes.php">Clientes</a>
-                        </li>
-                        <li class="nav-item dropdown" id="nav5">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Movimento
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="#">Entrada de Produtos</a></li>
-                              <li><a class="dropdown-item" href="#">Saída de Produtos</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Baixa de Produtos</a></li>
-                              <li><a class="dropdown-item" href="#">Devolução de Produtos</a></li>
-                            </ul>
-                          </li>
-                        <li class="nav-item" id="nav6">
-                            <a class="nav-link disabled" aria-disabled="true" href="#">Relatórios</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Google" aria-label="Search">
-                        <button class="btn btn-outline-primary" type="submit">Pesquisar</button>
-                    </form>
+        <?php include './conexao.php'; ?>
+        <?php include './cabecalho.php' ?>
+    </div>
+    <div>
+        <div>
+            <div>
+                <form action="incluir_produtos.php" method="POST">
+                <div align="center">
+                    <fieldset id="fscadastro" align="center">
+                        <h2>Cadastro de Produtos <i class="fa fa-barcode"></i></h2>
+                        <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
+                    </fieldset>
                 </div>
+                    <div align="center">
+                        <fieldset id="fs1">
+                            <legend align="center"><strong>Dados do Produto</strong></legend>
+                            <fieldset class="fsborder">
+                                <legend align="center">Identificação</legend>
+                                <table align="center">
+                                    <tr>
+                                        <td>Código de Barras*</td>
+                                        <td><input class="input-form" type="text" name="codigobarras" size="30" maxlength="13" id="" required></td>
+                                        <td><button class="btn">Consultar</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Descrição*</td>
+                                        <td><input type="text" name="descricaoprod" size="20" maxlength="50" id="" required></td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br>
+                            <fieldset class="fsborder">
+                                <legend align="center">Dimensões e Pesagem</legend>
+                                <table align="center">
+                                    <tr>
+                                        <td>Unidade*</td>
+                                        <td><select name="unidadeproduto" id="" required>
+                                            <option value="kg">Quilo</option>
+                                            <option value="lata">Lata</option>
+                                            <option value="m">Metro</option>
+                                        </select></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Peso*</td>
+                                        <td><input type="number" name="pesoproduto" size=5 maxlength="5" id="" required>(kg)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Custo*</td>
+                                        <td><input class="input-form" style="text-align: right;" type="text" name="custoproduto" size="10" maxlength="10" id="" required>R$</td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br>
+                            <fieldset class="fsborder">
+                                <legend align="center">Informações de Fornecedor/Vendas</legend>
+                                <table align="center">
+                                    <tr>
+                                        <td>Venda*</td>
+                                        <td><input type="number" name="vendaproduto" step="0.00" size="10" maxlength="10" id="" required>R$</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ultima Compra*</td>
+                                        <td><input style="text-align: right;" type="date" name="ultimacompraproduto" id="" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fornecedor</td>
+                                        <td><input type="text" size="5" maxlength="11" name="fornecedorproduto" id="" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quantidade*</td>
+                                        <td><input type="number" name="quantidadeproduto" min="0" max="10000" maxlength="5" id="" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mínimo</td>
+                                        <td><input type="number" name="minimoproduto" size="5" maxlength="5" id="" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Imagem</td>
+                                        <td><input id="inputimg" type="file" name="imgproduto" id="" ></td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br>
+                            <fieldset id="btnscancel" align="center">
+                                <input id="btnsub" class="btn" type="submit" value="Gravar">
+                                <button id="btncancel" class="btn">Cancelar</button>
+                            </fieldset>
+                        </fieldset>
+                    </div>
+                </form>
             </div>
-        </nav>
-    </div>
-    <div align="center">
-        <fieldset id="fscadastro" align="center">
-            <h2>Cadastro de Produtos <i class="fa fa-barcode"></i></h2>
-            <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
-        </fieldset>
-    </div>
-    <form role="form">
-        <div align="center">
-            <fieldset id="fsdadosprod">
-                <legend align="center"><strong>Dados do Produto</strong></legend>
-                <fieldset class="fsborder">
-                    <legend align="center">Identificação</legend>
-                    <table align="center">
-                        <tr>
-                            <td>CNPJ*</td>
-                            <td><input class="input-form" type="text" placeholder="Ex. 00.000.000/0000-00" data-mask="00.000.000/0000-00" name="cnpjproduto" size="30" maxlength="30" id="" required></td>
-                            <td><button class="btn">Consultar</button></td>
-                        </tr>
-                        <tr>
-                            <td>Razão*</td>
-                            <td><input type="text" name="razaoproduto" size="20" maxlength="50" id="" required></td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <br>
-                <fieldset class="fsborder">
-                    <legend align="center">Dimensões e Pesagem</legend>
-                    <table align="center">
-                        <tr>
-                            <td>Unidade*</td>
-                            <td><input type="text" name="unidadeproduto" size="2" maxlength="3" id="" required></td>
-                        </tr>
-                        <tr>
-                            <td>Peso*</td>
-                            <td><input type="number" name="pesoproduto" size=5 maxlength="5" id="" required>(kg)</td>
-                        </tr>
-                        <tr>
-                            <td>Custo*</td>
-                            <td><input class="input-form" style="text-align: right;" type="text" name="custoproduto" size="10" maxlength="10" id="" required>R$</td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <br>
-                <fieldset class="fsborder">
-                    <legend align="center">Informações de Fornecedor/Vendas</legend>
-                    <table align="center">
-                        <tr>
-                            <td>Venda*</td>
-                            <td><input type="number" name="vendaproduto" step="0.00" size="10" maxlength="10" id="" required>R$</td>
-                        </tr>
-                        <tr>
-                            <td>Ultima Compra*</td>
-                            <td><input style="text-align: right;" type="date" name="ultimacompraproduto" id="" required></td>
-                        </tr>
-                        <tr>
-                            <td>Fornecedor</td>
-                            <td><input type="number" size="5" maxlength="5" name="fornecedorproduto" id=""></td>
-                        </tr>
-                        <tr>
-                            <td>Quantidade*</td>
-                            <td><input type="number" name="quantidadeproduto" min="0" max="10000" maxlength="5" id="" required></td>
-                        </tr>
-                        <tr>
-                            <td>Mínimo</td>
-                            <td><input type="number" name="minimoproduto" size="5" maxlength="5" id=""></td>
-                        </tr>
-                        <tr>
-                            <td>Imagem</td>
-                            <td><input id="inputimg" type="file" name="imgproduto" id=""></td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <br>
-                <fieldset id="btnscancel" align="center">
-                    <input class="btn" type="submit" value="Gravar">
-                    <button id="btncancel" class="btn">Cancelar</button>
-                </fieldset>
-            </fieldset>
         </div>
-    </form>
-    <footer style="text-align: center; height:70px; background-color: #0C1446; padding: 5px;" class="w-100">
-        <p class="text-light"><i class="fa fa-map"></i> Setor Comercial Sul Quadra 2 Bloco C Edifício São Paulo, sala 208, Brasília - DF, 70297-400 
-        <br><i class="fa fa-globe"></i> 6427+Q5 Brasilia, Federal District <br><i class="fa fa-phone"></i> +556132264518</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
-    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    </div>
+    
+    <?php include_once './rodape.php' ?>
+    <?php include_once './scripts.php' ?>
 </body>
-
 </html>
