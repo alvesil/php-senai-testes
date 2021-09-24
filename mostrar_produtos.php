@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'links.php' ?>
-    <link rel="icon" href="./images/logo.ico"sizes="16x16" type="image/png">
     <style>
         #grey{
             background-color: #cccccc;
@@ -34,13 +33,13 @@
             $fornecedor = $linha['fornecedor'];
             $quantidade = $linha['quantidade'];
             $minimo = $linha['minimo'];
-            $imagem = $linha['imagem'];
+            $imagem = $linha['imagem'] ?? '';
         ?>
     </div>
     <div align="center" class="container">
         <div class="row">
             <div class="col">
-                <form action="incluir_produtos.php" method="POST">
+                <form action="incluir_produtos.php" enctype="multipart/form-data" method="POST">
                 <div align="center">
                     <fieldset id="fscadastro" align="center">
                         <h2>Cadastro de Produtos <i class="fa fa-barcode"></i></h2>
@@ -115,8 +114,19 @@
                                         <td><input value="<?php echo $minimo;?>" type="number" step="0.001" name="minimoproduto" size="5" maxlength="5" id="" required></td>
                                     </tr>
                                     <tr>
+                                    <?php 
+                                        $diretorio = "img/";
+                                        $resultado = mysqli_query($conexao,$sql);
+                                        $dados = mysqli_fetch_object($resultado);
+                                        $foto = $diretorio . $dados->imagem;
+                                        ?>
                                         <td>Imagem</td>
-                                        <td><input value="<?php echo $imagem;?>" id="inputimg" type="file" name="imgproduto" id="" ></td>
+                                        <td><input value = "<?php echo $imagem; ?>" type="file" name="arquivo"></td>
+                                        <td>
+                                        <?php 
+                                        echo "<img src='$foto' width='50px' height='50px' alt='' />";
+                                        echo "</td>";
+                                        ?>
                                     </tr>
                                 </table>
                             </fieldset>

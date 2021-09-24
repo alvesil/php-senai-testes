@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0C1446;">
             <div class="container-fluid">
-                <img width="40px" src="./images/logo.png" alt="Imagem não encontrada...">
+                <img width="40px" src="./img/logo.png" alt="Imagem não encontrada...">
                 <a class="navbar-brand disabled" href="#">OutletNet</a>
                 <button class="navbar-toggler pages" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

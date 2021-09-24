@@ -23,7 +23,9 @@
         $fornecedor = $_POST['fornecedorproduto'];
         $qtde = $_POST['quantidadeproduto'];
         $minimo = $_POST['minimoproduto'];
-        $img = $_POST['imgproduto'];
+        $imagem = $_FILES['arquivo']['name'];
+        $diretorio = "img/";
+        $_UP['pasta'] = $diretorio;
 
         // testa se existe o cpf escolhido
         $sql = "SELECT * FROM produtos WHERE codigodebarras = '$codigo'";
@@ -34,11 +36,13 @@
                 // se achou achou, é para atualizar
                 // update
                 $sql = "UPDATE produtos SET codigodebarras   = '$codigo', descricao = '$descricao', unidade = '$unidade', peso = '$peso', custo = '$custo', venda = '$venda',
-                ultimavenda = '$ultima_venda', fornecedor = '$fornecedor', quantidade = '$qtde', minimo = '$minimo', imagem = '$img' 
+                ultimavenda = '$ultima_venda', fornecedor = '$fornecedor', quantidade = '$qtde', minimo = '$minimo', imagem = '$imagem' 
                 WHERE codigodebarras = '$codigo'";
                 //echo $sql;
                 if (mysqli_query($conexao,$sql)) {
-                    echo '<div align="center" style="margin-top:250px;">';  
+                    move_uploaded_file($_FILES['arquivo']['tmp_name'] ,$_UP['pasta'].$imagem);
+
+                    echo '<div align="center" style="margin-top:250px;">';
                     echo "<h1>Produto atualizado com sucesso!</h1><br>";
                     echo '<a href="./produtos.php"><button class="btn" id="btnsub">Voltar p/ Produtos</button></a>';
                     echo '<a style="margin-left: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
@@ -60,9 +64,10 @@
                 $sql = "INSERT INTO produtos
                 (codigodebarras, descricao, unidade, peso, custo, venda, ultimavenda, fornecedor, quantidade, minimo, imagem) 
                 VALUES 
-                ('$codigo', '$descricao', '$unidade', '$peso', '$custo', '$venda', '$ultima_venda', '$fornecedor', '$qtde', '$minimo', '$img')";
+                ('$codigo', '$descricao', '$unidade', '$peso', '$custo', '$venda', '$ultima_venda', '$fornecedor', '$qtde', '$minimo', '$imagem')";
                 //echo $sql;
                 if (mysqli_query($conexao,$sql)) {
+                    move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'].$imagem);
                     echo '<div align="center" style="margin-top:250px;">';  
                     echo "<h1>Produto cadastrado com sucesso!</h1>";
                     echo '<a href="./produtos.php"><button class="btn" id="btnsub">Voltar p/ Produtos</button></a>';
