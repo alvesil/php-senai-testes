@@ -23,13 +23,13 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg" class="d-block w-100" alt="Imagem não encontrada">
+            <img  src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg" class="d-block w-100" alt="Imagem não encontrada">
           </div>
           <div class="carousel-item">
             <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" class="d-block w-100" alt="Imagem não encontrada">
           </div>
           <div class="carousel-item">
-            <img src="https://wowslider.com/sliders/demo-93/data1/images/landscape.jpg" class="d-block w-100" alt="Imagem não encontrada">
+            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" class="d-block w-100" alt="Imagem não encontrada">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

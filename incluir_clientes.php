@@ -11,40 +11,84 @@
 </head>
 
 <body>
-    <?php
-        include_once "./conexao.php";
-        $cpf = $_POST['cpfcliente'];
-        $nome = $_POST['nomecliente'];
-        $endereco = $_POST['enderecocliente'];
-        $numero = $_POST['numeroenderecocliente'];
-        $bairro = $_POST['bairrocliente'];
-        $cidade = $_POST['cidadecliente'];
-        $uf = $_POST['ufcliente'];
-        $cep = $_POST['cepcliente'];
-        $nascimento = $_POST['datanascimentocliente'];
-        $sexo = $_POST['sexocliente'];
-        $telefone = $_POST['celcliente'];
-        $email = $_POST['emailcliente'];
-        $salario = $_POST['salariocliente'];
-        $cor = $_POST['corcliente'];
-        $curso = $_POST['cursoscliente'];
+<?php 
+    include_once 'conexao.php';
+    $cpf = $_POST['cpf'];
+    $nome = $_POST['nomecliente'];
+    $endereco = $_POST['enderecocliente'];
+    $numero = $_POST['numeroenderecocliente'];
+    $bairro = $_POST['bairrocliente'];
+    $cidade = $_POST['cidadecliente'];
+    $uf = $_POST['ufcliente'];
+    $cep = $_POST['cepcliente'];
+    $nascimento = $_POST['datanascimentocliente'];
+    $sexo = $_POST['sexocliente'];
+    $telefone = $_POST['celcliente'];
+    $email = $_POST['emailcliente'];
+    $salario = $_POST['salariocliente'];
+    $cor = $_POST['corcliente'];
+    $curso = $_POST['cursoscliente'];
 
-        $sql = "INSERT INTO clientes(cpf, cep, nome, datanascimento, endereco, numeroendereco, bairro, cidade, uf, sexo, 
-        celular, email, salario, cor, cursosfeitos) VALUES ('$cpf', '$cep', '$nome', '$nascimento', '$endereco', '$numero', '$bairro', '$cidade', '$uf',
-        '$sexo', '$telefone', '$email', '$salario', '$cor', '$curso')";
-            if (mysqli_query($conexao, $sql)) {
-                echo '<div style="padding-top: 20%;" align="center"><h2 class="bg-success w-25 text-light">Cliente cadastrado com sucesso!.</h2></div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
+
+    // testa se existe o cpf escolhido
+    $sql = "SELECT * FROM clientes WHERE cpf = '$cpf'";
+    //echo $sql;
+    if ($resultado = mysqli_query($conexao,$sql)) {
+
+        if ($campo = mysqli_fetch_array($resultado)) {
+            // se achou achou, é para atualizar
+            // update
+            $sql = "UPDATE clientes SET nome = '$nome', endereco = '$endereco', numeroendereco = '$numero', bairro = '$bairro', cidade = '$cidade', uf = '$uf',
+            cep = '$cep', datanascimento = '$nascimento', sexo = '$sexo', celular = '$telefone', email = '$email', salario = '$salario', cor = '$cor',
+            cursosfeitos = '$curso' WHERE cpf = '$cpf'";
+            //echo $sql;
+            if (mysqli_query($conexao,$sql)) {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Cliente atualizado com sucesso!</h1><br>";
+                echo '<a href="./clientes.php"><button class="btn" id="btnsub">Voltar p/ Clientes</button></a>';
+                echo '<a style="margin-left: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
+                echo "</div>";
             }
-            else{
-                echo '<div style="padding-top: 20%;" align="center"><h2 class="bg-danger w-25 text-light">Cliente Não cadastrado!.</h2></div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
-                /*echo '<div style="margin-top: 300px;" align="center"><h2 class="text-danger">Ops!, Aconteceu algo de errado.</h2> <br>' . '<br>Erro: ' . $conexao->error . '<br>Query: ' . $sql . '</div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
-                */
-            } 
-        $conexao->close();
+            else
+            {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Algo de errado aconteceu!</h1>";
+                echo '<a href="./clientes.php"><button>Voltar</button></a>';
+                echo $conexao->error . '<br>' . $sql;
+                echo "</div>";
+            }
+        }
+        else
+        {
+            // se não achou, é para incluir
+            // insert 
+            $sql = "INSERT INTO clientes
+            (cpf, nome, endereco, numeroendereco, bairro, cidade, uf, cep, datanascimento, sexo, celular, email, salario, cor, cursosfeitos) 
+            VALUES 
+            ('$cpf', '$nome', '$endereco', '$numero', '$bairro', '$cidade', '$uf', '$cep', '$nascimento', '$sexo', '$telefone', '$email', '$salario', '$cor', '$curso')";
+            //echo $sql;
+            if (mysqli_query($conexao,$sql)) {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Cliente cadastrado com sucesso!</h1>";
+                echo '<a href="./clientes.php"><button class="btn" id="btnsub">Voltar p/ Clientes</button></a>';
+                echo '<a style="margin-left: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
+                echo "</div>";
+            }
+            else
+            {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Algo de errado aconteceu!</h1>";
+                echo '<a href="./clientes.php"><button>Voltar</button></a>';
+                echo $conexao->error . '<br>' . $sql;
+                echo "</div>";
+            
+            }
+        }
+    }
+    $conexao->close();
     ?>
+    <br>
+    
 </body>
-
+<?php include_once "scripts.php "; ?>
 </html>

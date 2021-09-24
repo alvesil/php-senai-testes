@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'links.php' ?>
     <link rel="icon" href="./images/logo.ico"sizes="16x16" type="image/png">
+    <style>
+        .grey{
+            background-color: #cccccc;
+        }
+    </style>
     <title>OutletNet (Produtos)</title>
 </head>
 
@@ -18,7 +23,7 @@
     <div>
         <div>
             <div>
-                <form action="incluir_produtos.php" method="POST">
+                <form action="mostrar_produtos.php" method="POST">
                 <div align="center">
                     <fieldset id="fscadastro" align="center">
                         <h2>Cadastro de Produtos <i class="fa fa-barcode"></i></h2>
@@ -34,11 +39,11 @@
                                     <tr>
                                         <td>Código de Barras*</td>
                                         <td><input class="input-form" type="text" name="codigobarras" size="30" maxlength="13" id="" required></td>
-                                        <td><button class="btn">Consultar</button></td>
+                                        <td><button style="margin-left:8px;" id="btnsub" class="btn">Consultar</button></td>
                                     </tr>
                                     <tr>
                                         <td>Descrição*</td>
-                                        <td><input type="text" name="descricaoprod" size="20" maxlength="50" id="" required></td>
+                                        <td><input class="grey" disabled type="text" name="descricaoprod" size="20" maxlength="50" id="" required></td>
                                     </tr>
                                 </table>
                             </fieldset>
@@ -48,19 +53,21 @@
                                 <table align="center">
                                     <tr>
                                         <td>Unidade*</td>
-                                        <td><select name="unidadeproduto" id="" required>
-                                            <option value="kg">Quilo</option>
-                                            <option value="lata">Lata</option>
+                                        <td><select class="grey" disabled name="unidadeproduto" id="" required>                                 
+                                            <option value="l">Lata</option>
+                                            <option value="k">Quilo</option>
+                                            <option value="p">Peça</option>
                                             <option value="m">Metro</option>
+                                            <option value="u">Unidade</option>
                                         </select></td>
                                     </tr>
                                     <tr>
                                         <td>Peso*</td>
-                                        <td><input type="number" name="pesoproduto" size=5 maxlength="5" id="" required>(kg)</td>
+                                        <td><input class="grey" disabled type="number" name="pesoproduto" size=5 maxlength="5" id="" required></td>
                                     </tr>
                                     <tr>
                                         <td>Custo*</td>
-                                        <td><input class="input-form" style="text-align: right;" type="text" name="custoproduto" size="10" maxlength="10" id="" required>R$</td>
+                                        <td><input class="grey" disabled class="input-form" style="text-align: right;" type="text" name="custoproduto" size="10" maxlength="10" id="" required></td>
                                     </tr>
                                 </table>
                             </fieldset>
@@ -70,34 +77,34 @@
                                 <table align="center">
                                     <tr>
                                         <td>Venda*</td>
-                                        <td><input type="number" name="vendaproduto" step="0.00" size="10" maxlength="10" id="" required>R$</td>
+                                        <td><input class="grey" disabled type="number" name="vendaproduto" step="0.00" size="10" maxlength="10" id="" required></td>
                                     </tr>
                                     <tr>
                                         <td>Ultima Compra*</td>
-                                        <td><input style="text-align: right;" type="date" name="ultimacompraproduto" id="" required></td>
+                                        <td><input class="grey" disabled style="text-align: right;" type="date" name="ultimacompraproduto" id="" required></td>
                                     </tr>
                                     <tr>
                                         <td>Fornecedor</td>
-                                        <td><input type="text" size="5" maxlength="11" name="fornecedorproduto" id="" required></td>
+                                        <td><input class="grey" disabled type="text" size="18" maxlength="18" name="fornecedorproduto" id="" required></td>
                                     </tr>
                                     <tr>
                                         <td>Quantidade*</td>
-                                        <td><input type="number" name="quantidadeproduto" min="0" max="10000" maxlength="5" id="" required></td>
+                                        <td><input class="grey" disabled type="number" name="quantidadeproduto" min="0" max="10000" maxlength="5" id="" required></td>
                                     </tr>
                                     <tr>
                                         <td>Mínimo</td>
-                                        <td><input type="number" name="minimoproduto" size="5" maxlength="5" id="" required></td>
+                                        <td><input class="grey" disabled type="number" name="minimoproduto" size="5" maxlength="5" id="" required></td>
                                     </tr>
                                     <tr>
                                         <td>Imagem</td>
-                                        <td><input id="inputimg" type="file" name="imgproduto" id="" ></td>
+                                        <td><input class="grey" disabled id="inputimg" type="file" name="imgproduto" id="" ></td>
                                     </tr>
                                 </table>
                             </fieldset>
                             <br>
                             <fieldset id="btnscancel" align="center">
-                                <input id="btnsub" class="btn" type="submit" value="Gravar">
-                                <button id="btncancel" class="btn">Cancelar</button>
+                                <input disabled id="btnsub" class="btn" type="submit" value="Gravar">
+                                <input id="btncancel" class="btn" type="reset"></input>
                             </fieldset>
                         </fieldset>
                     </div>

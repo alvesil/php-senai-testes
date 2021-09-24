@@ -20,8 +20,8 @@
         $celular = $_POST['celularfornecedor'];
         $wpp = $_POST['whatsappfornecedor'];
         $email_fornecedor = $_POST['emailfornecedor'];
-        $data_cadastro = $_POST['datacadastrofornecedor'];
-        $data_ult_compra = $_POST['dataultcompfornecedor'];
+        $data_compra = $_POST['datacadastrofornecedor'];
+        $data_venda = $_POST['dataultcompfornecedor'];
         $saldo_compra = $_POST['saldocompradofornecedor'];
         $status = $_POST['statusfornecedor'];
         $obs = $_POST['observacaofornecedor'];
@@ -29,22 +29,62 @@
         $ag = $_POST['agenciafornecedor'];
         $conta = $_POST['contafornecedor'];
 
-        $sql = "INSERT INTO fornecedores(cnpj, razao, telefone1, telefone2, celular, whatsapp, email, datacompra, 
-        datavenda, saldocompras, observacao, status, banco, agencia, conta) VALUES ('$cnpj','$razao','$telefone1','$telefone2','$celular','$wpp','$email_fornecedor',
-        '$data_cadastro','$data_ult_compra','$saldo_compra','$status','$obs',
-        '$banco','$ag', '$conta')";
-            if (mysqli_query($conexao, $sql)) {
-                echo '<div style="padding-top: 20%;" align="center"><h2 class="bg-success w-25 text-light">Fornecedor cadastrado com sucesso!.</h2></div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
+        // testa se existe o cpf escolhido
+    $sql = "SELECT * FROM fornecedores WHERE cnpj = '$cnpj'";
+    //echo $sql;
+    if ($resultado = mysqli_query($conexao,$sql)) {
+
+        if ($campo = mysqli_fetch_array($resultado)) {
+            // se achou achou, é para atualizar
+            // update
+            $sql = "UPDATE fornecedores SET cnpj = '$cnpj', razao = '$razao', telefone1 = '$telefone1', telefone2 = '$telefone2', celular = '$celular', whatsapp = '$wpp',
+            email = '$email_fornecedor', datacompra = '$data_compra', datavenda = '$data_venda', saldocompras = '$saldo_compra', sts = '$status', observacao = '$obs', banco = '$banco',
+            agencia = '$ag', conta = '$conta' WHERE cnpj = '$cnpj'";
+            //echo $sql;
+            if (mysqli_query($conexao,$sql)) {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Fornecedor atualizado com sucesso!</h1><br>";
+                echo '<a href="./fornecedor.php"><button class="btn" id="btnsub">Voltar p/ Fornecedores</button></a>';
+                echo '<a style="margin: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
+                echo "</div>";
             }
-            else{
-                /*echo '<div style="padding-top: 20%;" align="center"><h2 class="bg-danger w-25 text-light">Fornecedor Não cadastrado!.</h2></div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
-                */echo '<div style="margin-top: 300px;" align="center"><h2 class="text-danger">Ops!, Aconteceu algo de errado.</h2> <br>' . '<br>Erro: ' . $conexao->error . '<br>Query: ' . $sql . '</div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
-                
-            } 
-        $conexao->close();
+            else
+            {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Algo de errado aconteceu!</h1>";
+                echo '<a href="./fornecedor.php"><button class="btn" id="btnsub">Voltar</button></a><br>';
+                //echo $conexao->error . '<br>' . $sql;
+                echo "</div>";
+            }
+        }
+        else
+        {
+            // se não achou, é para incluir
+            // insert 
+            $sql = "INSERT INTO fornecedores
+            (cnpj, razao, telefone1, telefone2, celular, whatsapp, email, datacompra, datavenda, saldocompras, sts, observacao, banco, agencia, conta) 
+            VALUES 
+            ('$cnpj', '$razao', '$telefone1', '$telefone2', '$celular', '$wpp', '$email_fornecedor', '$data_compra', '$data_venda', '$saldo_compra', '$status', '$obs', '$banco', '$ag', '$conta')";
+            //echo $sql;
+            if (mysqli_query($conexao,$sql)) {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Fornecedor cadastrado com sucesso!</h1>";
+                echo '<a href="./fornecedor.php"><button class="btn" id="btnsub">Voltar p/ Fornecedores</button></a>';
+                echo '<a style="margin: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
+                echo "</div>";
+            }
+            else
+            {
+                echo '<div align="center" style="margin-top:250px;">';  
+                echo "<h1>Algo de errado aconteceu!</h1>";
+                echo '<a href="./fornecedor.php"><button class="btn" id="btnsub">Voltar</button></a><br>';
+                //echo $conexao->error . '<br>' . $sql;
+                echo "</div>";
+            
+            }
+        }
+    }
+    $conexao->close();
     ?>
 </body>
 

@@ -21,17 +21,27 @@
                         </li>
                         <li class="nav-item dropdown" id="nav5">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Movimento
+                              Consultar
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="./consulta_clientes.php">Consultar Clientes</a></li>
+                              <li><a class="dropdown-item" href="./consulta_fornecedores.php">Consultar Fornecedores</a></li>
+                              <li><a class="dropdown-item" href="./consulta_produtos.php">Consultar Produtos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" id="nav6">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Movimento
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                               <li><a class="dropdown-item" href="./movimentacao.php">Entrada de Produtos</a></li>
                               <li><a class="dropdown-item" href="#">Saída de Produtos</a></li>
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdown-item" href="#">Baixa de Produtos</a></li>
                               <li><a class="dropdown-item" href="#">Devolução de Produtos</a></li>
                             </ul>
-                          </li>
-                        <li class="nav-item" id="nav6">
+                        </li>
+                        <li class="nav-item" id="nav7">
                             <a class="nav-link" aria-disabled="true" href="relatorios.php">Relatórios</a>
                         </li>
                     </ul>
@@ -41,4 +51,4 @@
                     </form>
                 </div>
             </div>
-        </nav>
+</nav>

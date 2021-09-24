@@ -7,95 +7,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'links.php' ?>
     <link rel="icon" href="./images/logo.ico"sizes="16x16" type="image/png">
-    <title>OutletNet (Produtos)</title>
+    <style>
+        input{
+            background-color: #cccccc;
+        }
+        .notgrey{
+            background-color: #ffffff;
+        }
+    </style>
+    <title>OutletNet (Movimentação)</title>
 </head>
 
 <body>
     <div>
         <?php include './conexao.php'; ?>
         <?php include './cabecalho.php' ?>
+        <?php include './funcoes.php' ?>
     </div>
     <div align="center">
         <fieldset id="fscadastro" align="center">
-            <h2>Cadastro de Produtos <i class="fa fa-barcode"></i></h2>
+            <h2>Movimentação <i class="fa fa-barcode"></i></h2>
             <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
         </fieldset>
     </div>
-    <form role="form">
+    <form action="mostrar_movimentacao.php" method="POST">
         <div align="center">
-            <fieldset id="fsdadosprod">
-                <legend align="center"><strong>Dados do Produto</strong></legend>
-                <fieldset class="fsborder">
-                    <legend align="center">Identificação</legend>
-                    <table align="center">
-                        <tr>
-                            <td>Código de Barras*</td>
-                            <td><input class="input-form" type="text" name="codigobarras" size="30" maxlength="30" id="" required></td>
-                            <td><button class="btn">Consultar</button></td>
-                        </tr>
-                        <tr>
-                            <td>Descrição*</td>
-                            <td><input type="text" name="descricaoprod" size="20" maxlength="50" id="" disabled></td>
-                        </tr>
-                    </table>
-                </fieldset>
+            <fieldset id="cabecalho1">
+                <fieldset>
+                    <table>
+                    <tr>
+                    <td>Código de Barras</td>
+                    <td><input class="notgrey" type="text" name="mov_barras" size="13" maxlength="13"> 
+
+
+                    <button class="btn" id="btnsub">Buscar</button>
+                    </td>
+
+
+                    <td>Descrição</td>
+                    <td><input type="text" name="descricaoproduto" size="50" maxlength="50" disabled>
+                    </td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Unidade</td>
+                    <td>
+
+                    <input type="text" size="15" maxlength="15"   name="unidadeproduto" disabled >
+                    </select>
+                    </td>
+
+
+                    <td>Peso</td>
+                    <td><input type="number" name="pesoproduto" size="5" maxlength="5" disabled ></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Custo</td>
+                    <td><input type="number" name="custoproduto" size="10" maxlength="10" disabled></td>
+                    <td>Venda</td>
+                    <td><input type="number" name="vendaproduto" size="10" maxlength="10" disabled></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Em Estoque</td>
+                    <td><input type="number" name="quantidadeproduto" size="5" maxlength="5" disabled=""></td>
+                    <td>Estoque Mínimo</td>
+                    <td><input type="number" name="minimoproduto" size="5" maxlength="5" disabled ></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Imagem</td>
+                    <td><input type="file" name="imagemproduto" disabled></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Fornecedor</td>
+                    <td><input type="number" name="mov_cnpj" size="5" maxlength="5" disabled>
+
+
+                    </td>
+                    <td>Razão Social</td>
+                    <td><input type="text" name="razaofornecedores" size="50" maxlength="50" disabled></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Custo do Produto</td>
+                    <td><input type="number" name="mov_custo" size="10" maxlength="10" disabled></td>
+                    <td>Valor de Venda</td>
+                    <td><input type="number" name="mov_venda" size="10" maxlength="10" disabled></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>quantidade</td>
+                    <td><input type="number" name="mov_quantidade" size="5" maxlength="5" disabled></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Data e Hora</td>
+                    <td><input type="text" name="mov_datahora" value = "<?php echo datasistematela(); ?>" disabled ></td>
+                    </tr>
+                    </table>    
                 <br>
-                <fieldset class="fsborder">
-                    <legend align="center">Dimensões e Pesagem</legend>
-                    <table align="center">
-                        <tr>
-                            <td>Unidade*</td>
-                            <td><select name="unidadeproduto" id="" disabled>
-                                <option value="kg">Quilo</option>
-                                <option value="lata">Lata</option>
-                                <option value="m">Metro</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                            <td>Peso*</td>
-                            <td><input type="number" name="pesoproduto" size=5 maxlength="5" id="" disabled>(kg)</td>
-                        </tr>
-                        <tr>
-                            <td>Custo*</td>
-                            <td><input class="input-form" style="text-align: right;" type="text" name="custoproduto" size="10" maxlength="10" id="" required>R$</td>
-                        </tr>
-                    </table>
-                </fieldset>
+                <input class="btn" id="btnsub" type="submit" name="botaoenviar" value="Gravar" disabled> 
                 <br>
-                <fieldset class="fsborder">
-                    <legend align="center">Informações de Fornecedor/Vendas</legend>
-                    <table align="center">
-                        <tr>
-                            <td>Venda*</td>
-                            <td><input type="number" name="vendaproduto" step="0.00" size="10" maxlength="10" id="" required>R$</td>
-                        </tr>
-                        <tr>
-                            <td>Ultima Compra*</td>
-                            <td><input style="text-align: right;" type="date" name="ultimacompraproduto" id="" disabled></td>
-                        </tr>
-                        <tr>
-                            <td>Fornecedor</td>
-                            <td><input type="number" size="5" maxlength="5" name="fornecedorproduto" id="" disabled></td>
-                        </tr>
-                        <tr>
-                            <td>Quantidade*</td>
-                            <td><input type="number" name="quantidadeproduto" min="0" max="10000" maxlength="5" id="" required></td>
-                        </tr>
-                        <tr>
-                            <td>Mínimo</td>
-                            <td><input type="number" name="minimoproduto" size="5" maxlength="5" id="" disabled></td>
-                        </tr>
-                        <tr>
-                            <td>Imagem</td>
-                            <td><input id="inputimg" type="file" name="imgproduto" id="" disabled></td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <br>
-                <fieldset id="btnscancel" align="center">
-                    <input class="btn btn-primary" type="submit" value="Gravar">
-                    <button id="btncancel" class="btn">Cancelar</button>
-                </fieldset>
             </fieldset>
         </div>
     </form>

@@ -13,7 +13,7 @@
 <body>
 <?php
         include_once "./conexao.php";
-        $codigo_de_barras = $_POST['codigobarras'];
+        $codigo = $_POST['codigo'];
         $descricao = $_POST['descricaoprod'];
         $unidade = $_POST['unidadeproduto'];
         $peso = $_POST['pesoproduto'];
@@ -25,20 +25,61 @@
         $minimo = $_POST['minimoproduto'];
         $img = $_POST['imgproduto'];
 
-        $sql = "INSERT INTO produtos(codigodebarras, descricao, unidade, peso, custo, venda, ultimavenda, fornecedor, 
-        quantidade, minimo, imagem) VALUES ('$codigo_de_barras','$descricao','$unidade','$peso','$custo','$venda','$ultima_venda',
-        '$fornecedor','$qtde','$minimo','$img')";
-            if (mysqli_query($conexao, $sql)) {
-                echo '<div style="padding-top: 20%;" align="center"><h2 class="bg-success w-25 text-light">Produto cadastrado com sucesso!.</h2></div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
+        // testa se existe o cpf escolhido
+        $sql = "SELECT * FROM produtos WHERE codigodebarras = '$codigo'";
+        //echo $sql;
+        if ($resultado = mysqli_query($conexao,$sql)) {
+
+            if ($campo = mysqli_fetch_array($resultado)) {
+                // se achou achou, é para atualizar
+                // update
+                $sql = "UPDATE produtos SET codigodebarras   = '$codigo', descricao = '$descricao', unidade = '$unidade', peso = '$peso', custo = '$custo', venda = '$venda',
+                ultimavenda = '$ultima_venda', fornecedor = '$fornecedor', quantidade = '$qtde', minimo = '$minimo', imagem = '$img' 
+                WHERE codigodebarras = '$codigo'";
+                //echo $sql;
+                if (mysqli_query($conexao,$sql)) {
+                    echo '<div align="center" style="margin-top:250px;">';  
+                    echo "<h1>Produto atualizado com sucesso!</h1><br>";
+                    echo '<a href="./produtos.php"><button class="btn" id="btnsub">Voltar p/ Produtos</button></a>';
+                    echo '<a style="margin-left: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
+                    echo "</div>";
+                }
+                else
+                {
+                    echo '<div align="center" style="margin-top:250px;">';  
+                    echo "<h1>Algo de errado aconteceu!</h1>";
+                    echo '<a href="./produtos.php"><button class="btn" id="btnsub">Voltar</button></a><br>';
+                    //echo $conexao->error . '<br>' . $sql;
+                    echo "</div>";
+                }
             }
-            else{
-                /*echo '<div style="padding-top: 20%;" align="center"><h2 class="bg-danger w-25 text-light">Produto Não cadastrado!.</h2></div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
-                */echo '<div style="margin-top: 300px;" align="center"><h2 class="text-danger">Ops!, Aconteceu algo de errado.</h2> <br>' . '<br>Erro: ' . $conexao->error . '<br>Query: ' . $sql . '</div>';
-                echo '<br><br><div align="center" class="container"><div class="row"><div class="col"><a href="./clientes.php"><button class="btn btn-primary">Voltar</button></a></div></div></div>';
+            else
+            {
+                // se não achou, é para incluir
+                // insert 
+                $sql = "INSERT INTO produtos
+                (codigodebarras, descricao, unidade, peso, custo, venda, ultimavenda, fornecedor, quantidade, minimo, imagem) 
+                VALUES 
+                ('$codigo', '$descricao', '$unidade', '$peso', '$custo', '$venda', '$ultima_venda', '$fornecedor', '$qtde', '$minimo', '$img')";
+                //echo $sql;
+                if (mysqli_query($conexao,$sql)) {
+                    echo '<div align="center" style="margin-top:250px;">';  
+                    echo "<h1>Produto cadastrado com sucesso!</h1>";
+                    echo '<a href="./produtos.php"><button class="btn" id="btnsub">Voltar p/ Produtos</button></a>';
+                    echo '<a style="margin-left: 8px;" href="./relatorios.php"><button class="btn" id="btncancel">Voltar p/ Relatórios</button></a>';
+                    echo "</div>";
+                }
+                else
+                {
+                    echo '<div align="center" style="margin-top:250px;">';  
+                    echo "<h1>Algo de errado aconteceu!</h1>";
+                    echo '<a href="./produtos.php"><button class="btn" id="btnsub">Voltar</button></a><br>';
+                    //echo $conexao->error . '<br>' . $sql;
+                    echo "</div>";
                 
-            } 
+                }
+            }
+        } 
         $conexao->close();
     ?>
 </body>
