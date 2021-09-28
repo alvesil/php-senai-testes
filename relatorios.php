@@ -358,8 +358,36 @@
                                     echo '<td>' . $qtde . '</td>';
                                     echo '<td>' . $minimo . '</td>';
                                     echo '<td><img src="' . $img . '"></td>';
-                                    echo '<td>' . '<form action="./apagar_produtos.php" method="POST"><input hidden name="proddel" value="'.$codigo_de_barras.'"><button class="btn btn" id="btncancel" type="submit"><i class="fa fa-trash"></i></button></form>
-                                                    </td><td><form action="./mostrar_produtos.php" method="POST"><input hidden name="codigobarras" value="'.$codigo_de_barras.'"><button class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button></form></td>';
+                                    echo '<td>' . '
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn" id="btncancel" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Excluir Registro!</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            Tem certeza que deseja excluir os dados do Código de barras:'.$codigo_de_barras.' ?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <form action="./apagar_produtos.php" method="POST"><input hidden name="proddel" value="'.$codigo_de_barras.'"><button class="btn btn-outline" id="btncancel" type="submit">Sim, Excluir!</button></form>
+                                                            <button type="button" class="btn" id="btnsub" data-bs-dismiss="modal">Não.</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    </td><td>
+                                                    <form action="./mostrar_produtos.php" method="POST"><input hidden name="codigobarras" value="'.$codigo_de_barras.'">
+                                                    <button class="btn" id="btnsub" type="submit"><i class="fa fa-pencil"></i></button></form>
+                                                    </td>';
+                                    
                                     echo '</tr>';
                                 } 
                             echo '</table>';

@@ -103,7 +103,33 @@
                                     </tr>
                                     <tr>
                                         <td>Fornecedor</td>
-                                        <td><input value="<?php echo $fornecedor;?>" type="text" size="18" maxlength="18" name="fornecedorproduto" id="" required></td>
+                                        <?php 
+                                            if($fornecedor == null){
+                                                $sql = "SELECT * FROM `fornecedores` WHERE 1";
+                                                $resultado = mysqli_query($conexao, $sql);
+                                                if (mysqli_num_rows($resultado) > 0){
+                                                    echo 
+                                                    '
+                                                    <td>
+                                                        <select name="fornecedorproduto">';
+                                                            while ($tabela = mysqli_fetch_array($resultado)) {
+                                                                # code...
+                                                                echo '<option value='.$tabela['cnpj'].';>'.$tabela['cnpj'].'</option>';
+                                                            }
+                                                        echo '</select>
+                                                    </td>
+                                                    ';
+                                                }
+                                                echo 
+                                                '
+                                                
+                                                ';
+                                            }else{
+                                                echo '<td><input value="'.$fornecedor.'" type="text" size="18" maxlength="18" name="fornecedorproduto" id="" required></td>';
+                                            }
+                                        
+                                        ?>
+                                        
                                     </tr>
                                     <tr>
                                         <td>Quantidade*</td>
