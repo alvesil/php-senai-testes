@@ -114,18 +114,30 @@
                                         <td><input value="<?php echo $minimo;?>" type="number" step="0.001" name="minimoproduto" size="5" maxlength="5" id="" required></td>
                                     </tr>
                                     <tr>
-                                    <?php 
+                                        <?php 
                                         $diretorio = "img/";
                                         $resultado = mysqli_query($conexao,$sql);
                                         $dados = mysqli_fetch_object($resultado);
-                                        $foto = $diretorio . $dados->imagem;
+                                        if ($imagem != null) {
+                                            # code...
+                                            $foto = $diretorio . $dados->imagem;
+                                            echo $foto;
+                                        }
                                         ?>
                                         <td>Imagem</td>
                                         <td><input value = "<?php echo $imagem; ?>" type="file" name="arquivo"></td>
                                         <td>
-                                        <?php 
-                                        echo "<img src='$foto' width='50px' height='50px' alt='' />";
+                                        <?php
+                                        if ($imagem == null) {
+                                            # code...
+                                            echo "<img src='' width='50px' height='50px' alt='not found' />";
+                                        }else{
+                                            echo "<img src='$foto' width='50px' height='50px' alt='' />";
+                                            
+                                        } 
                                         echo "</td>";
+                                        echo $foto;
+                                        
                                         ?>
                                     </tr>
                                 </table>

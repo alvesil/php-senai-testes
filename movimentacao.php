@@ -20,17 +20,20 @@
 
 <body>
     <div>
-        <?php include './conexao.php'; ?>
-        <?php include './cabecalho.php' ?>
-        <?php include './funcoes.php' ?>
+        <?php 
+            include './conexao.php'; 
+            include './cabecalho.php';
+            include './funcoes.php';
+            $acao = $_GET['acao'];
+        ?>
     </div>
     <div align="center">
         <fieldset id="fscadastro" align="center">
-            <h2>Movimentação <i class="fa fa-barcode"></i></h2>
+            <h2>Movimentação - <?php echo $acao; ?> <i class="fa fa-barcode"></i></h2>
             <h5>Observação: Todos os campos com (*) são obrigatórios!</h5>
         </fieldset>
     </div>
-    <form action="mostrar_movimentacao.php" method="POST">
+    <form action="mostrar_movimentacao.php?acao=<?php echo $acao; ?>" method="POST">
         <div align="center">
             <fieldset id="cabecalho1">
                 <fieldset>
@@ -40,7 +43,7 @@
                     <td><input class="notgrey" type="text" name="mov_barras" size="13" maxlength="13"> 
 
 
-                    <button class="btn" id="btnsub">Buscar</button>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" name="buscar" class="btn" id="btnsub">Buscar</button>
                     </td>
 
 
@@ -123,6 +126,9 @@
         </div>
     </form>
     
-    <?php include_once './rodape.php' ?>
+    <footer style="margin-top:17%; text-align: center; height:100% ; background-color: #0C1446; padding: 5px; position:fixed;" class="w-100">
+        <p class="text-light"><i class="fa fa-map"></i> Setor Comercial Sul Quadra 2 Bloco C Edifício São Paulo, sala 208, Brasília - DF, 70297-400 
+        <br><i class="fa fa-globe"></i> 6427+Q5 Brasilia, Federal District <br><i class="fa fa-phone"></i> +556132264518</p>
+    </footer>
     <?php include_once './scripts.php' ?>
 </html>

@@ -34,11 +34,11 @@
                               Movimento
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                              <li><a class="dropdown-item" href="./movimentacao.php">Entrada de Produtos</a></li>
-                              <li><a class="dropdown-item" href="#">Saída de Produtos</a></li>
+                              <li><a class="dropdown-item" href="./movimentacao.php?acao=entrada">Entrada de Produtos</a></li>
+                              <li><a class="dropdown-item" href="./movimentacao.php?acao=saida">Saída de Produtos</a></li>
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Baixa de Produtos</a></li>
-                              <li><a class="dropdown-item" href="#">Devolução de Produtos</a></li>
+                              <li><a class="dropdown-item" href="./movimentacao.php?acao=baixa">Baixa de Produtos</a></li>
+                              <li><a class="dropdown-item" href="./movimentacao.php?acao=devolucao">Devolução de Produtos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item" id="nav7">
@@ -51,4 +51,5 @@
                     </form>
                 </div>
             </div>
+            
 </nav>

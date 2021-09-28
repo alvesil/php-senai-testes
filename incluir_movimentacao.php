@@ -4,6 +4,8 @@ include_once 'conexao.php';
 include_once 'funcoes.php';
 include_once 'links.php';
 
+$acao = $_GET['acao'];
+
 // pega os valores dos campos do formulário fornecedores e coloca em variaveis
 $chave = $_POST['mov_barras'];
 
@@ -13,11 +15,11 @@ $vendaproduto = $_POST['vendaproduto'];
 $quantidadeproduto = $_POST['quantidadeproduto'];
 
 // estas variaveis foram digitadas
-$mov_custo = $_POST['mov_custo'];
-$mov_venda = $_POST['mov_venda'];
+$mov_custo = $_POST['mov_custo'] ?? '';
+$mov_venda = $_POST['mov_venda'] ?? '';
 $mov_quantidade = $_POST['mov_quantidade'];
 $mov_datahora = $_POST['mov_datahora'];
-echo $mov_datahora;
+// echo $mov_datahora;
 
 // atualizar o custo (se foi alterado), venda (se foi aleterado) e quantidade
 
@@ -26,7 +28,15 @@ if ( floatval($mov_custo) == 0) { $mov_custo = $custoproduto; echo "1";}
 // se não alterou o preco de venda, mantem o preco de venda velho
 if ( floatval($mov_venda) == 0) { $mov_venda = $vendaproduto; echo "2";}
 // soma a quantidade digitada com a quantidade que já tem em produtos
-$quantidadeatual = $mov_quantidade + $quantidadeproduto;
+if ($acao == 'entrada') {
+	# code...
+	$quantidadeatual = $quantidadeproduto + $mov_quantidade;
+}else{
+	$quantidadeatual = $quantidadeproduto - $mov_quantidade;
+}
+// echo $quantidadeatual . "<br>";
+// echo $mov_quantidade . "<br>";
+// echo $quantidadeproduto;
 $sql = "BEGIN;";
 mysqli_query($conexao,$sql);
 
@@ -38,13 +48,13 @@ if ($resultado = mysqli_query($conexao,$sql) ) {
 
 	// atualizar a quantidade na tabela de produtos
 	$sql = "UPDATE produtos SET custo = '$mov_custo', venda = '$mov_venda', quantidade = '$quantidadeatual' WHERE codigodebarras = '$chave'";
-	if ($resultado = mysqli_query($conexao,$sql) ) {
+	if ($resultado = mysqli_query($conexao,$sql)) {
 		// deu certo atualizar a tabela de produtos
 		$sql = "COMMIT;";
 		mysqli_query($conexao,$sql);
         echo '<div align="center" style="margin-top:250px;">';  
         echo "<h1>Produto atualizado com sucesso!</h1>";
-        echo '<a href="./movimentacao.php"><button class="btn" id="btnsub">Voltar</button></a>';
+		echo '<a href="./movimentacao.php?acao='.$acao.'"><button class="btn" id="btnsub">Voltar</button></a>';
         echo "</div>";
 	}
 	else
@@ -55,7 +65,7 @@ if ($resultado = mysqli_query($conexao,$sql) ) {
 		mysqli_query($conexao,$sql);
         echo '<div align="center" style="margin-top:250px;">';  
         echo "<h1>Algo de errado aconteceu!</h1>";
-        echo '<a href="./movimentacao.php"><button>Voltar</button></a>';
+		echo '<a href="./movimentacao.php?acao='.$acao.'"><button>Voltar</button></a>';
         echo $conexao->error . '<br>' . $sql;
         echo "</div>";
 	}
@@ -68,7 +78,7 @@ else
 	mysqli_query($conexao,$sql);
     echo '<div align="center" style="margin-top:250px;">';  
     echo "<h1>Algo de errado aconteceu!</h1>";
-    echo '<a href="./movimentacao.php"><button>Voltar</button></a>';
+	echo '<a href="./movimentacao.php?acao='.$acao.'"><button>Voltar</button></a>';
     echo $conexao->error . '<br>' . $sql;
     echo "</div>";
 }
