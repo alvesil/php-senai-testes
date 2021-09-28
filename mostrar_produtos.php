@@ -136,8 +136,6 @@
                                             
                                         } 
                                         echo "</td>";
-                                        echo $foto;
-                                        
                                         ?>
                                     </tr>
                                 </table>
